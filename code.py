@@ -1,5 +1,4 @@
-# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
-# SPDX-License-Identifier: MIT
+#https://learn.adafruit.com/circuitpython-led-animations/overview
 
 import time
 import board
@@ -26,15 +25,10 @@ from adafruit_led_animation.animation.rainbowsparkle import RainbowSparkle
 
 from adafruit_led_animation.color import RED, YELLOW, ORANGE, GREEN, TEAL, CYAN, BLUE, PURPLE, MAGENTA, WHITE, BLACK, GOLD, PINK, AQUA, JADE, AMBER, OLD_LACE
 
-# On CircuitPlayground Express, and boards with built in status NeoPixel -> board.NEOPIXEL
-# Otherwise choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D1
 pixel_pin = board.D12
 
 # The number of NeoPixels
 num_pixels = 72
-
-mode = 1
-maxMode = 4
 
 # The order of the pixel colors - RGB or GRB. Some NeoPixels have red and green reversed!
 # For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
@@ -76,10 +70,6 @@ rainbow = Rainbow(pixels, speed=0.1, period=2)
 rainbow_chase = RainbowChase(pixels, speed=0.1, size=5, spacing=3)
 rainbow_comet = RainbowComet(pixels, speed=0.02, tail_length=7, bounce=True)
 rainbow_sparkle = RainbowSparkle(pixels, speed=0.1, num_sparkles=15)
-
-#animations = AnimationSequence(
-#    blink, comet, chase, sparkle, advance_interval=5, auto_clear=True
-#)
 
 animations = AnimationSequence(
     solid, blink, comet, pulse, chase, sparkle, sparkle_pulse, rainbow, rainbow_chase, rainbow_comet, rainbow_sparkle, auto_clear=True
